@@ -1,3 +1,19 @@
 $color-light: #fff;
 $color-button: #26de81;
+$color-dark: #2f3542;
 $font-text: 'Poppins', sans-serif;
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $color-dark;
+    font-family: $font-text;
+    font-size: (12px * 1.1);
+    color: $color-light;
+    letter-spacing: 0.5px;
+}

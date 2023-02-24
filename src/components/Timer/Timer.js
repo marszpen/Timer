@@ -1,9 +1,11 @@
 import { useState,useEffect } from 'react';
 import Button from '../Buttons/Buttons';
 import styles from './Timer.module.scss';
+import TimeConverter from '../TimeConverter/TimeConverter.js'
 
 
 const Stoper = props => {
+
   const [time,setTime] = useState (0);
   const [timer,setTimer] = useState (null);
 
@@ -17,9 +19,11 @@ const Stoper = props => {
     };
   }, []);
 
+  
 
 return ( 
 <form className={styles.stoper}>
+  <TimeConverter />
   <Button>START</Button>
   <Button>STOP</Button>
   <Button>RESET</Button>
