@@ -23,11 +23,14 @@ const Stoper = props => {
 
 return ( 
 <form className={styles.stoper}>
-  <TimeConverter />
+  <div className={styles.div}>
+  <TimeConverter time={time} />
+  </div>
+  <div className={styles.div}>
   <Button>START</Button>
   <Button>STOP</Button>
   <Button>RESET</Button>
-  {time};
+  </div>
 </form>
 );
 };
