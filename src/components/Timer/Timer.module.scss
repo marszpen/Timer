@@ -7,6 +7,8 @@
     justify-content: center;   
 }
 
-.div {
-    display: block;
-}
+@media (max-width: 380px) {
+    .timeConverter {
+      font-size: 45px;
+    }
+  }

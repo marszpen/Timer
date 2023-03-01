@@ -9,30 +9,48 @@ const Stoper = props => {
   const [time,setTime] = useState (0);
   const [timer,setTimer] = useState (null);
 
+  const step = () => {
+    setTime(time => time + 100)
+  }
+  
   useEffect(() => {
-    const interval = setInterval (()=> {
-        setTime (time => time + 100)
-    }, 100);
+    const interval = setInterval (step, 100);
     setTimer (interval)
     return () => {
       clearInterval(interval)
     };
   }, []);
 
+  const handleStart = () => {
+    if(!timer) {
+      const interval = setInterval (step, 100);
+      setTimer (interval)
+    }
+  }
   
-
+  const handleStop = () => {
+    if (timer) {
+      clearInterval(timer);
+      setTimer(null)
+    }
+  }
+  
+  const handleReset = () => {
+    setTime(0);
+  }
+  
 return ( 
-<form className={styles.stoper}>
-  <div className={styles.div}>
-  <TimeConverter time={time} />
+  <div>
+    <div className={styles.stoper}>
+    <TimeConverter time={time} />
+    </div>
+    <div className={styles.stoper}>
+    <Button onClick={handleStart}>START</Button>
+    <Button onClick={handleStop}>STOP</Button>
+    <Button onClick={handleReset}>RESET</Button>
+    </div>
   </div>
-  <div className={styles.div}>
-  <Button>START</Button>
-  <Button>STOP</Button>
-  <Button>RESET</Button>
-  </div>
-</form>
-);
+  );
 };
 
 export default Stoper
